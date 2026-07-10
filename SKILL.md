@@ -63,6 +63,8 @@ Transcribe every clip to `work/transcripts/`, one file per clip. This is the hig
 
 Flag privacy-sensitive audio (personal prophecies, pastoral conversations, names of minors) and confirm with the user before using it; visual-only use is often the right call.
 
+**Log footage (iLog, S-Log, D-Log, ...):** apply the camera's official LUT on the fly when generating thumbnails/contact sheets (`-vf lut3d='<lut>.cube'`) so the user reviews normal colors, and bake the LUT into the selects when copying them off the card (`ffmpeg -vf lut3d=... -c:v libx264 -crf 16`) so the editor never has to think about color. Test the LUT on ONE short clip and show the user before batching - a wrong LUT/firmware pairing ruins every select. The card keeps the log originals for serious grading later. If the shoot mixes log and non-log cameras, only the log clips go through the LUT pass.
+
 ### Step 4 - Voice over
 1. Draft the VO script from the transcripts + act structure. Moments the camera missed can live in VO. Mark facts you could not verify as [FILL] for the user.
 2. **Human records** - one clean continuous take beats many fragments; quiet room; phone voice-memo quality is fine.
