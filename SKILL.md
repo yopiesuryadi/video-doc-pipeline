@@ -43,6 +43,8 @@ Originals are read-only by convention. Everything Claude produces goes in `work/
 ### Step 0 - Ingest
 Human copies files off the phone/card. Claude sorts into `source/<date>/` folders by file timestamp. Verify clip count and total duration with ffprobe; report both.
 
+**Low-storage variant (working from a memory card):** if disk space is tight, Steps 1-3 can read directly from the mounted card (`/Volumes/<card>`) - screening, transcription, and select verification are single-pass sequential reads and safe on a card. Then copy **only the approved selects** (~25-30% of raw) into `source/` and continue normally. Never assemble or render against files on the card: editors re-read media constantly, removable volumes break projects when unplugged, and if the card is the only original it must stay read-only. Do not format the card until the master is rendered and QC'd.
+
 ### Step 1 - Screening: thumbnails + contact sheets
 Generate a thumbnail per clip (ffmpeg, ~40% into the clip), assemble per-day contact sheets with `montage`. Present sheets to the user and build a per-day log of what was filmed. Mid-clip thumbnails can be misleading - final select verification happens in Step 3.
 
