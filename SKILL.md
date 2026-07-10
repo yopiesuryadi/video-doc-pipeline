@@ -43,13 +43,15 @@ Originals are read-only by convention. Everything the agent produces goes in `wo
 ### Step 0 - Ingest
 Human copies files off the phone/card. The agent sorts into `source/<date>/` folders by file timestamp. Verify clip count and total duration with ffprobe; report both.
 
+**Zero-touch trigger (optional):** `automation/card-watcher.sh` + `card-watcher.plist` make macOS launchd watch `/Volumes` and wake the agent the moment a camera card is inserted, so read-only screening starts before the user sits down. Install: copy the plist to `~/Library/LaunchAgents/` with the script's absolute path filled in, then `launchctl bootstrap gui/$(id -u) <plist>`. The notify command inside the script is pluggable (OpenClaw message, webhook, or plain notification).
+
 **Low-storage variant (working from a memory card):** if disk space is tight, Steps 1-3 can read directly from the mounted card (`/Volumes/<card>`) - screening, transcription, and select verification are single-pass sequential reads and safe on a card. Then copy **only the approved selects** (~25-30% of raw) into `source/` and continue normally. Never assemble or render against files on the card: editors re-read media constantly, removable volumes break projects when unplugged, and if the card is the only original it must stay read-only. Do not format the card until the master is rendered and QC'd.
 
 ### Step 1 - Screening: thumbnails + contact sheets
 Generate a thumbnail per clip (ffmpeg, ~40% into the clip), assemble per-day contact sheets with `montage`. Present sheets to the user and build a per-day log of what was filmed. Mid-clip thumbnails can be misleading - final select verification happens in Step 3.
 
 ### Step 2 - Transcribe everything
-**HARD RULE: ask the user what language(s) the audio is in, and whether they want verbatim output, BEFORE running any transcription.** Auto-detect picks wrong languages and wastes the entire run.
+**HARD RULE: never batch-transcribe on blind auto-detect** - a wrong language guess wastes the entire run. Protocol: if the user already stated the language, use it. Otherwise **detect-and-verify**: auto-detect on 5 sampled clips from different shooting days; if all samples agree, proceed with that language and tell the user which one was picked; if samples disagree or look garbled, stop and ask the user.
 
 Transcribe every clip to `work/transcripts/`, one file per clip. This is the highest-leverage step: transcripts find the audio backbone of the film (recurring briefings, sermons, testimonies, one-liners) that visual screening misses. Read the transcripts and surface the best bites to the user.
 
@@ -76,6 +78,8 @@ One track per act mood (opening / daily life / climax / closing). Generate copyr
 
 ### Step 6 - Assembly
 Write the full assembly plan as a text blueprint first (every clip: start frame, duration, source trim, which VO block and photo overlays it) - then execute it in the editor. Track layout: V1 picture, V2 photo overlays, A1 music, A2 VO, A3 natural clip audio. Duck natural audio to ~0.2 under VO; keep briefings/sermon bites/testimonies at 1.0. Photos: fill-frame + gentle Ken Burns (~6%), and verify each one so no heads are cropped. Title and closing cards. Captions for hard-to-hear speech, built manually from whisper SRT when the audio is bilingual (auto-captioning fails on mixed-language audio). Editor-specific traps are in `references/GOTCHAS.md` - read it before driving Palmier.
+
+**Digital multicam (static-shot rescue):** any long static shot of a speaking person (sermon, testimony, interview) can be cut like a multi-camera shoot using crops of the same footage, as long as source resolution exceeds delivery resolution (4K source → 1080p delivery gives ~2x punch-in room). Build 2-3 virtual angles - tight talking head, medium, full wide - by splitting the clip and giving each segment a different scale+position transform. Switch angles at natural sentence pauses; alternate angles on every cut. This also makes mid-sentence trims invisible: a jump cut disguised as an angle change. Keep punch-ins under ~2x so the crop never upscales visibly; keep headroom and eyeline consistent across angles.
 
 ### Step 7 - Review loop
 Export preview → user watches → user gives notes as `mm:ss` timestamps → the agent executes all of them → new preview. Repeat until approved (2-3 rounds is normal). Never render the master from an unapproved preview.
