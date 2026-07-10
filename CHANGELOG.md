@@ -4,6 +4,7 @@ All notable changes to this skill. Update this file with every release — users
 
 ## 2026-07-10 — v0.3.0 "toward 98%"
 
+- **YouTube Data API scripts** (`automation/youtube/`): `yt_auth.py` (one-time OAuth consent) + `yt_publish.py` set title, description+chapters, thumbnail, and multi-language captions on a video via API — the click-heavy part of publishing, automated. File upload stays manual until the project passes YouTube API audit. Secrets live in `~/.config/youtube-pipeline/`, never in the repo.
 - **Card-insert watcher** (`automation/`): launchd watches `/Volumes` and wakes the agent the moment a camera card is inserted — screening starts before you sit down. Pluggable notify command (OpenClaw / webhook / notification).
 - **Language detect-and-verify**: no more mandatory language question — auto-detect on 5 sampled clips, proceed when they agree, ask only on disagreement.
 - **Digital multicam**: official Step 6 technique — cut long static talking shots like a multi-camera shoot using ≤2x crops (tight / medium / wide), switching angles at sentence pauses. Also hides jump cuts.
