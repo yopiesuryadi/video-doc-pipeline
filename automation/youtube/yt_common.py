@@ -13,7 +13,9 @@ import os
 CONFIG_DIR = os.path.expanduser("~/.config/youtube-pipeline")
 CLIENT_SECRET = os.path.join(CONFIG_DIR, "client_secret.json")
 TOKEN = os.path.join(CONFIG_DIR, "token.json")
-SCOPES = ["https://www.googleapis.com/auth/youtube"]
+# force-ssl is the superset: metadata, thumbnails, captions, and upload.
+# Plain youtube scope cannot manage caption tracks.
+SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
 
 
 def get_service():
