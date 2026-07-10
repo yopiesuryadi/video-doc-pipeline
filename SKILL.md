@@ -18,7 +18,7 @@ Before starting, verify tools and offer to install what's missing (commands in `
 - `ffmpeg` + `ffprobe` (cutting, audio EQ, encoding)
 - ImageMagick `montage` (contact sheets)
 - Whisper for transcription - on Apple Silicon prefer `mlx-whisper` in a dedicated venv; elsewhere any whisper CLI works
-- A timeline editor Claude can drive (Palmier Pro via MCP is proven; check with `get_timeline`). If none is available, the pipeline still works through Step 4 - deliver a paper edit + assembly plan the user can execute in any editor
+- A timeline editor the agent can drive (Palmier Pro via MCP is proven; check with `get_timeline`). If none is available, the pipeline still works through Step 4 - deliver a paper edit + assembly plan the user can execute in any editor
 - Music source: AI generation (e.g. Higgsfield `sonilo_music`, paid credits) or the user's own licensed tracks
 
 Ask the user which are available rather than assuming. Palmier and music generation are paid; never present them as required if the user only wants a rough cut.
@@ -36,12 +36,12 @@ One folder per project, created at the start:
 └── (root)                   rough cuts, previews, master
 ```
 
-Originals are read-only by convention. Everything Claude produces goes in `work/`.
+Originals are read-only by convention. Everything the agent produces goes in `work/`.
 
 ## The pipeline
 
 ### Step 0 - Ingest
-Human copies files off the phone/card. Claude sorts into `source/<date>/` folders by file timestamp. Verify clip count and total duration with ffprobe; report both.
+Human copies files off the phone/card. The agent sorts into `source/<date>/` folders by file timestamp. Verify clip count and total duration with ffprobe; report both.
 
 **Low-storage variant (working from a memory card):** if disk space is tight, Steps 1-3 can read directly from the mounted card (`/Volumes/<card>`) - screening, transcription, and select verification are single-pass sequential reads and safe on a card. Then copy **only the approved selects** (~25-30% of raw) into `source/` and continue normally. Never assemble or render against files on the card: editors re-read media constantly, removable volumes break projects when unplugged, and if the card is the only original it must stay read-only. Do not format the card until the master is rendered and QC'd.
 
@@ -69,7 +69,7 @@ Flag privacy-sensitive audio (personal prophecies, pastoral conversations, names
 1. Draft the VO script from the transcripts + act structure. Moments the camera missed can live in VO. Mark facts you could not verify as [FILL] for the user.
 2. **Human records** - one clean continuous take beats many fragments; quiet room; phone voice-memo quality is fine.
 3. **HARD RULE: the user must LISTEN to the recording with their own ears before assembly.** Transcripts normalize away flubs and doubled words; a transcript check is not QC.
-4. Claude cuts the take into per-position blocks and applies EQ. Proven recipe for a quiet-room phone recording: **no denoise** (it muffles), highpass 100 Hz, small dip ~280 Hz, presence lift 3 kHz + 8 kHz, `loudnorm` to about -13.5 LUFS. Leave gaps between VO blocks on the timeline so nothing overlaps.
+4. The agent cuts the take into per-position blocks and applies EQ. Proven recipe for a quiet-room phone recording: **no denoise** (it muffles), highpass 100 Hz, small dip ~280 Hz, presence lift 3 kHz + 8 kHz, `loudnorm` to about -13.5 LUFS. Leave gaps between VO blocks on the timeline so nothing overlaps.
 
 ### Step 5 - Music
 One track per act mood (opening / daily life / climax / closing). Generate copyright-free tracks or use the user's library. Bed volume low (~0.15-0.18) with ducking under VO; let the climax act breathe with music down or out.
@@ -78,7 +78,7 @@ One track per act mood (opening / daily life / climax / closing). Generate copyr
 Write the full assembly plan as a text blueprint first (every clip: start frame, duration, source trim, which VO block and photo overlays it) - then execute it in the editor. Track layout: V1 picture, V2 photo overlays, A1 music, A2 VO, A3 natural clip audio. Duck natural audio to ~0.2 under VO; keep briefings/sermon bites/testimonies at 1.0. Photos: fill-frame + gentle Ken Burns (~6%), and verify each one so no heads are cropped. Title and closing cards. Captions for hard-to-hear speech, built manually from whisper SRT when the audio is bilingual (auto-captioning fails on mixed-language audio). Editor-specific traps are in `references/GOTCHAS.md` - read it before driving Palmier.
 
 ### Step 7 - Review loop
-Export preview → user watches → user gives notes as `mm:ss` timestamps → Claude executes all of them → new preview. Repeat until approved (2-3 rounds is normal). Never render the master from an unapproved preview.
+Export preview → user watches → user gives notes as `mm:ss` timestamps → the agent executes all of them → new preview. Repeat until approved (2-3 rounds is normal). Never render the master from an unapproved preview.
 
 ### Step 8 - Master + archive
 Master at source resolution (H.265 works well). Also offer a **chronological archive**: every raw clip concatenated in time order at 1080p, so the user can wipe cards/phone without losing the record.
