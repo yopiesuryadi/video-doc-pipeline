@@ -9,7 +9,7 @@ Proven in production: 215 raw clips (~57 min) became a published 12:29 documenta
 ## Install
 
 ```
-git clone https://github.com/<owner>/video-doc-pipeline ~/.claude/skills/video-doc-pipeline
+git clone https://github.com/yopiesuryadi/video-doc-pipeline ~/.claude/skills/video-doc-pipeline
 ```
 
 Then in Claude Code, just describe what you want: *"turn the footage in ~/Videos/trip-2026 into a 10-minute travel doc"*. The skill takes over from there, starting with a tool check.
