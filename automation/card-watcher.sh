@@ -19,7 +19,7 @@ LOG_FILE="$STATE_DIR/card-watcher.log"
 # channel, e.g. Telegram). Swap for anything else — a notification, a webhook:
 #   NOTIFY_CMD() { osascript -e "display notification \"$1\""; }
 NOTIFY_CMD() {
-  /opt/homebrew/bin/openclaw agent --deliver -m "$1"
+  /opt/homebrew/bin/openclaw agent --agent main --deliver -m "$1"
 }
 
 mkdir -p "$STATE_DIR"

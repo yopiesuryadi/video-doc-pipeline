@@ -42,6 +42,9 @@ Full setup commands: [references/SETUP.md](references/SETUP.md). Hard-won operat
 SKILL.md                 the pipeline: 11 steps, hard rules, division of labor
 references/SETUP.md      one-time install commands
 references/GOTCHAS.md    production lessons (ffmpeg, whisper, Palmier, YouTube)
+automation/              card-insert watcher (launchd): screening starts on plug-in
+ROADMAP.md               the path from 80% AI to 98% AI (human only shoots)
+CHANGELOG.md             release notes — what you get when you pull
 ```
 
 ## License

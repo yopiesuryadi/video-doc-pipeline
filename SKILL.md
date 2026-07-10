@@ -105,7 +105,7 @@ This skill is distributed as a git repository. When the user asks to update it (
 git -C "$(dirname <path-to-this-SKILL.md>)" pull --ff-only
 ```
 
-Then report what changed (`git log --oneline HEAD@{1}..HEAD`). If the pull fails because of local edits, show `git status` and let the user decide; never discard their local changes silently.
+Then report what changed: summarize the new entries at the top of `CHANGELOG.md` (fall back to `git log --oneline HEAD@{1}..HEAD`). If the pull fails because of local edits, show `git status` and let the user decide; never discard their local changes silently.
 
 ## Principles (why this works)
 
