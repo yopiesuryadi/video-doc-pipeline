@@ -1,0 +1,30 @@
+[2026-07-10T11:41:19.692Z] [error] Failed to load resource: the server responded with a status of 401 (Unauthorized)
+[2026-07-10T11:41:20.334Z] [warning] The PerformanceObserver does not support buffered flag with the entryTypes argument.
+[2026-07-10T11:41:20.491Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-07-10T11:41:20.561Z] [warning] No ID or name found in config.
+[2026-07-10T11:41:20.612Z] [warning] No ID or name found in config.
+[2026-07-10T11:41:20.615Z] [warning] No ID or name found in config.
+[2026-07-10T11:41:20.615Z] [warning] No ID or name found in config.
+[2026-07-10T11:41:20.616Z] [warning] No ID or name found in config.
+[2026-07-10T11:41:20.617Z] [warning] No ID or name found in config.
+[2026-07-10T11:41:20.618Z] [warning] No ID or name found in config.
+[2026-07-10T11:41:20.619Z] [warning] No ID or name found in config.
+[2026-07-10T11:41:20.685Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-07-10T11:41:20.729Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-07-10T11:41:20.737Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-07-10T11:41:20.756Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-07-10T11:41:23.809Z] [error] Failed to load resource: the server responded with a status of 400 ()
+[2026-07-10T11:41:23.830Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-07-10T11:41:23.857Z] [error] Failed to load resource: the server responded with a status of 400 ()
+[2026-07-10T11:41:23.992Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-07-10T11:41:24.010Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-07-10T11:41:24.012Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-07-10T11:41:24.102Z] [error] ERROR ErrorResponse
+[2026-07-10T11:41:37.068Z] [warning] The resource https://www.gstatic.com/_/mss/boq-cloud-client/_/js/md=1/k=boq-cloud-client.OauthMicroUi.en_GB.j5nGMSzqZpY.es6.O/ck=boq-cloud-client.OauthMicroUi.UXMHN-gY9U8.L.W.O/rs=AJ563L9pDFqs27s4hfOHOcmMR4rSMYosXA was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-07-10T11:41:37.068Z] [warning] The resource https://www.gstatic.com/_/mss/boq-cloud-client/_/js/k=boq-cloud-client.OauthMicroUi.en_GB.j5nGMSzqZpY.es6.O/d=1/rs=AJ563L-grx8IQLOmP39mbNfAtIRo2CYIQw/m=b was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-07-10T11:41:37.068Z] [warning] The resource https://www.gstatic.com/pantheon/images/shellgm2/icons-medium_v15.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-07-10T11:41:37.068Z] [warning] The resource https://www.gstatic.com/pantheon/images/common/icons-medium_v163.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-07-10T11:41:43.628Z] [warning] The resource https://www.gstatic.com/_/mss/boq-cloud-client/_/js/md=1/k=boq-cloud-client.OauthMicroUi.en_GB.j5nGMSzqZpY.es6.O/ck=boq-cloud-client.OauthMicroUi.UXMHN-gY9U8.L.W.O/rs=AJ563L9pDFqs27s4hfOHOcmMR4rSMYosXA was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-07-10T11:41:43.628Z] [warning] The resource https://www.gstatic.com/_/mss/boq-cloud-client/_/js/k=boq-cloud-client.OauthMicroUi.en_GB.j5nGMSzqZpY.es6.O/d=1/rs=AJ563L-grx8IQLOmP39mbNfAtIRo2CYIQw/m=b was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-07-10T11:41:43.628Z] [warning] The resource https://www.gstatic.com/pantheon/images/shellgm2/icons-medium_v15.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-07-10T11:41:43.628Z] [warning] The resource https://www.gstatic.com/pantheon/images/common/icons-medium_v163.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
